@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 $('#imagesBody tr:last').after('<tr><td class="danger">Error: No alt tag provided</td><td>'+parsedHtml.images[i].src+'</td></tr>');
                                 var source = parsedHtml.images[i].src.replace('chrome-extension://jepgedbmbmcbllidonfjkcfcpbealfee', '');
                                 port.postMessage({msg: "imageError", data: source});
-                                errorCount++;
+                                errorCount += errorCount;
                             }
                             else {
                                 $('#imagesBody tr:last').after('<tr><td>'+parsedHtml.images[i].alt+'</td><td>'+parsedHtml.images[i].src+'</td></tr>');
@@ -74,46 +74,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
-
-
-
-// chrome.browserAction.onClicked.addListener(function(tab){
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//         var activeTab = tabs[0];
-//         chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-//         // chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "source": activeTab.getElementsByTagName('html')[0].innerHTML});
-//     });
-// });
-
-// chrome.runtime.onMessage.addListener(
-//     function(request, sender, sendResponse) {
-//         // if (request.message === "open_new_tab") {
-//         //     chrome.tabs.create({"url": request.url});
-//         // }
-//         if (request.message === "source_doc") {
-//             console.log(chrome.tabs.getMessage());
-//         }
-//     }
-// );
-
-
-
-// // background.js
-
-// // Called when the user clicks on the browser action.
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//   // Send a message to the active tab
-//   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//     var activeTab = tabs[0];
-//     chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-//   });
-// });
-
-// // This block is new!
-// chrome.runtime.onMessage.addListener(
-//   function(request, sender, sendResponse) {
-//     if( request.message === "open_new_tab" ) {
-//       chrome.tabs.create({"url": request.url});
-//     }
-//   }
-// );
