@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 $('#imagesBody tr:last').after('<tr><td class="danger">Error: No alt tag provided</td><td>'+parsedHtml.images[i].src+'</td></tr>');
                                 var source = parsedHtml.images[i].src.replace('chrome-extension://jepgedbmbmcbllidonfjkcfcpbealfee', '');
                                 port.postMessage({msg: "imageError", data: source});
-                                errorCount += errorCount;
+                                this.errorCount ++;
                             }
                             else {
                                 $('#imagesBody tr:last').after('<tr><td>'+parsedHtml.images[i].alt+'</td><td>'+parsedHtml.images[i].src+'</td></tr>');
